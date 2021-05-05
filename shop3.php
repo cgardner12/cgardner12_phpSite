@@ -2,13 +2,12 @@
 <head>
 <title>Redirector</title>
 <?php
-require("library/phpfunctions.php);
-
+require("library/phpfunctions.php");
 
 ?>
-<?php Aheader() ?>
+<?php Aheader(); ?>
 </head>
 <body>
-<?php footer() ?>
+<?php footer(); ?>
 </body>
 </html>
