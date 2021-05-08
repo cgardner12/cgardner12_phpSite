@@ -2,7 +2,7 @@
 <head>
 <title>Redirector</title>
 <?php
-require("library/phpfunctions.php");
+//require("library/phpfunctions.php");
 
 
 ?>
