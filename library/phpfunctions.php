@@ -1,3 +1,7 @@
+<!--  I honor Parkland's core values by affirming that I have 
+followed all academic integrity guidelines for this work.
+Cameron Gardner
+CSC-155-201F_2021SP -->
 <?php
 ///library functions ....version 00
 function Aheader()
@@ -35,9 +39,6 @@ function footer()
 	echo "<a href='cart.php'>Cart</a>";
 	echo " | ";
 	echo "<a href='logout.php'>Logout</a>";
-	echo "</center>";
-	echo "<center>";
-	echo "<a href='http://www.csit.parkland.edu/~cgardner12/csc155-cgi/lab20'>Database--DELETE THIS</a>";
 	echo "</center>";
 
    	if ($_SESSION['group'] == "admin")
