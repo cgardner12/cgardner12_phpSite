@@ -21,7 +21,7 @@ if (isset($_POST['submit']))
 	setcookie($name, $_POST['name'], time() + (86400 * 30));
 }
 if (!isset($_POST['name'])){
-	$name = "Name Here";
+	$name = "type here...";
 }else{
 	$name = $_POST['name'];
 }
@@ -32,7 +32,7 @@ if (!isset($_POST['name'])){
 <center>
 <br>
 <form method='POST'>
-<label for='name'> Enter Your First Name: </label><input type='text' id='name' name='name' value='<?php echo $name; ?>'/>
+<label for='name'> Enter Your First Name: </label><input type='text' id='name' name='name' placeholder='<?php echo $name; ?>'/>
 <input type='submit' name='choice' value='Submit'/>
 </form>
 <h1>Welcome <?php echo $name; ?>, to the Stuff Store.</h1>

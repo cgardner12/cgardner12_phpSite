@@ -4,36 +4,29 @@
 <title>Cameron's Login Page</title>
 <?php
 require("library/phpfunctions.php");
-
-function printUser(){
-	echo getPost('first_name'). '' . getPost('last_name');
-}
-
-function getPost($name){
-	if ( isset($_POST[$name]) ){
-		return htmlspecialchars($_POST[$name]);
-	}
-	return "";
-}
 Aheader();
 echo "<br>";
+
 session_start();
+$conn = getConn();
 
 if (isset($_POST["submit"]))
 {
-	if ($_POST["155username"] == "test" and $_POST["155password"] == "4321")
-	{
-		$_SESSION["user"] = $_POST["155username"];
-		echo "<center>";
-		echo "Thank you for signing in!";
-		echo "</center>";
-		echo "<br>";
-		header("refresh:2;url=welcome.php");
-	}
-	else
-	{
-		echo "Either the username and/or Password is Incorrect";
-	}
+	$row = lookupUsername($conn, getPost("155username"));
+	if ($row == 0) 
+    	{
+    		echo "Invalid -->username and/or password";
+    	}
+    	else if ( password_verify($_POST["155password"], $row['encrypted_password'] ))
+    	{
+    		$_SESSION["user"] =  getPost("155username");
+    		$_SESSION["group"] =  $row['usergroup'];
+    		header("Location: welcome.php");
+    	}
+    	else 
+    	{
+    		echo "Invalid username and/or -->password";
+    	}
 }
 ?>
 </head>
@@ -45,6 +38,7 @@ Password: <input type='password' name='155password' value='<?php echo getPost("1
 <input type='submit' name='submit' value='Log In'>
 </form>
 <p>Hint: The username is 'test' and  the password is  '4321' </p>
+<p><a href='newlogin.php'>Create New Login</a></p>
 </center>
 </body>
 </html>

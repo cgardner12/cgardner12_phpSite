@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>Welcome to my webpage!</title>
+<?php
+require("library/phpfunctions.php");
+Aheader();
+
+session_start();
+
+if (!isset($_SESSION['user']))
+{
+	header("Location: login.php");
+}
+?>
+</head>
+<body>
+<h2> Welcome <?php echo $_SESSION['user']; ?></h2>
+
+<?php footer(); ?>
+</body>
+</html>
