@@ -9,25 +9,26 @@ function Aheader()
 	echo "Cameron Gardner";
 	echo "<br>";
 	echo "CSC-155-201F_2021SP -->";
-	echo "<center>";
-	echo "<img src='stuff.jpg' alt='stuff'>";
-	echo "</center>";
+	echo "<form method='POST'>";
+	echo "<label for='name'> Enter Your First Name: </label><input type='text' id='name' name='name' value=''/>";
+	echo "<input type='submit' name='choice' value='Submit'/>";
+	echo "</form>";
 }
 
 function footer()
 {
 	if(isset($_COOKIE["name"]))
 	{
-		$name = $_COOKIE["name"];
+		$name = $_COOKIE[$_POST['name']];
 	}
 	else
 	{
-		$name = !empty($_POST["name"]);
+		$name = $_POST["name"];
 	}
 	?>
 	<?php
 	echo "<center>";
-	echo "<img src='stuff.jpg' alt='stuff2' width='200' height='100'>";
+	echo "This is the page footer";
 	echo "</center>";
 	echo "</hr><center>";
 	echo "<a href='welcome.php'>Welcome</a>";

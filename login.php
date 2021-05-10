@@ -5,9 +5,6 @@
 <?php
 require("library/phpfunctions.php");
 
-function writtenBy(){
-	echo "Tester";
-}
 function printUser(){
 	echo getPost('first_name'). '' . getPost('last_name');
 }
